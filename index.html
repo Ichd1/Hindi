@@ -2,37 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TG - @Cricinsider365</title>
-  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+  <title>TG_@Cricinsider365</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      color: #1e90ff;
+      margin: 20px 0;
+    }
+    iframe {
+      width: 95%;
+      height: 250px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .section {
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      background: #444;
+      color: #fff;
+    }
+    .btn.active {
+      background: #1e90ff;
+    }
+    .telegram {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 12px 25px;
+      background: #1e90ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-  <div id="video"></div>
 
-  <script type="text/javascript">
-    // Function to get video URL from the domain
-    function getVideoUrlFromDomain() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('videoUrl');
+  <h1>TG_@Cricinsider365</h1>
+
+  <!-- Iframe for streaming -->
+  <iframe id="streamFrame" src="" allowfullscreen></iframe>
+
+  <!-- Hindi Quality Buttons -->
+  <div class="section">
+    <h2>Hindi</h2>
+    <button class="btn" id="hindi1080" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8')">1080p</button>
+    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_2000.m3u8')">720p</button>
+    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_664.m3u8')">360p</button> 
+  </div>
+  </div>
+
+  <!-- Telegram -->
+  <a class="telegram" href="https://t.me/+IhSW51QysxU3NzY1" target="_blank">Join us on Telegram</a>
+
+  <script>
+    function setStream(url) {
+      document.getElementById("streamFrame").src = url;
+
+      // active button highlight
+      document.querySelectorAll(".btn").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
     }
 
-    jwplayer("video").setup({
-      width: "100%",
-      height: "100%",
-      autostart: true,
-      mute: false,
-      file: getVideoUrlFromDomain()
-    });
-
-    if(confirm("Join Our Telegram Channel @Cricinsider365 For More Links")) { window.location.href = "https://t.me/+IhSW51QysxU3NzY1" }
+    // ✅ Auto-load Hindi 1080p when page opens
+    window.onload = function() {
+      let defaultUrl = "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8";
+      document.getElementById("streamFrame").src = defaultUrl;
+      document.getElementById("hindi1080").classList.add("active");
+    }
   </script>
 
-  <div style="background-color: #0074d9; text-align: center; padding: 10px;">
-    <a href="https://t.me/+IhSW51QysxU3NzY1" target="_blank">
-      <button id="joinTelegramButton" style="background-color: #fff; color: #0074d9; border: 2px solid #0074d9; padding: 5px 10px;">Join
-        Telegram</button>
-    </a>
-  </div>
+  <script>
+    // Optional Telegram popup
+    if (confirm("Join Our Telegram Channel @Cricinsider365") == true) {
+      window.open("https://t.me/+IhSW51QysxU3NzY1", '_blank');
+    }
+  </script>
+
 </body>
 </html>
