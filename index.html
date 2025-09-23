@@ -2,104 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TG_@Cricinsider365</title>
+  <title>Cricinsider365</title>
+  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
   <style>
     body {
       margin: 0;
-      background: #000;
-      color: #fff;
       font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 {
-      color: #1e90ff;
-      margin: 20px 0;
-    }
-    iframe {
-      width: 95%;
-      height: 250px;
-      border: none;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-    .section {
-      margin: 20px 0;
-    }
-    .btn {
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      background: #444;
-      color: #fff;
-    }
-    .btn.active {
-      background: #1e90ff;
-    }
-    .telegram {
-      display: inline-block;
-      margin: 20px 0;
-      padding: 12px 25px;
-      background: #1e90ff;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
       color: white;
-      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #logo {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    #logo img {
+      width: 180px;
+      height: auto;
+    }
+
+    #video {
+      width: 90%;
+      max-width: 720px;
+      margin: 60px auto 20px auto;
+      border: 2px solid #1e90ff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      transition: border 0.3s;
+    }
+
+    .fullscreen #video {
+      border: none;
+      box-shadow: none;
+    }
+
+    #telegramButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px;
+      height: 50px;
+      background: linear-gradient(90deg, #1e90ff, #001f3f);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
       border-radius: 25px;
-      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    #telegramButton:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(90deg, #001f3f, #1e90ff);
     }
   </style>
 </head>
 <body>
 
-  <h1>TG_@Cricinsider365</h1>
-
-  <!-- Iframe for streaming -->
-  <iframe id="streamFrame" src="" allowfullscreen></iframe>
-
-  <!-- Hindi Quality Buttons -->
-  <div class="section">
-    <h2>Hindi</h2>
-    <button class="btn" id="hindi1080" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8')">1080p</button>
-    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_2000.m3u8')">720p</button>
-    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_664.m3u8')">360p</button> 
+  <!-- Logo -->
+  <div id="logo" onclick="redirectToWebsite()">
+    <img src="https://i.postimg.cc/rw0xB8nh/IMG-20250217-230348-305.png" alt="Logo" />
   </div>
 
-  <!-- English Quality Buttons -->
-  <div class="section">
-    <h2>English</h2>
-    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2011747/TEN1HD/master_3500.m3u8')">1080p</button>
-    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2011747/TEN1HD/master_2000.m3u8')">720p</button>
-    <button class="btn" onclick="setStream('https://dish.slivcdn.com/hls/live/2011747/TEN1HD/master_664.m3u8')">360p</button>
+  <!-- Video Player -->
+  <div id="video"></div>
+
+  <!-- Telegram Button -->
+  <div id="telegramButton" onclick="redirectToTelegram()">
+    Join Telegram For More Live Links 
   </div>
 
-  <!-- Telegram -->
-  <a class="telegram" href="https://t.me/+IhSW51QysxU3NzY1" target="_blank">Join us on Telegram</a>
-
   <script>
-    function setStream(url) {
-      document.getElementById("streamFrame").src = url;
+    // Initialize JWPlayer
+    const playerInstance = jwplayer("video").setup({
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      mute: false,
+      file: "https://in-mc-fdlive.fancode.com/mumbai/136745_hindi_hls_3d0880779651715ta-di_h264/index.m3u8",
+      skin: {
+        name: "glow"
+      }
+    });
 
-      // active button highlight
-      document.querySelectorAll(".btn").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
+    // Handle fullscreen class
+    playerInstance.on('fullscreen', function (event) {
+      if (event.fullscreen) {
+        document.body.classList.add('fullscreen');
+      } else {
+        document.body.classList.remove('fullscreen');
+      }
+    });
+
+    // Telegram redirect
+    function redirectToTelegram() {
+      window.location.href = "https://t.me/+IhSW51QysxU3NzY1";
     }
 
-    // ✅ Auto-load Hindi 1080p when page opens
-    window.onload = function() {
-      let defaultUrl = "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8";
-      document.getElementById("streamFrame").src = defaultUrl;
-      document.getElementById("hindi1080").classList.add("active");
+    // Logo redirect
+    function redirectToWebsite() {
+      window.location.href = "https://t.me/+IhSW51QysxU3NzY1";
     }
+
+    // Optional: Prompt before redirecting
+    window.onload = function () {
+      if (confirm("Join Our Telegram Channel to stay updated!")) {
+        redirectToTelegram();
+      }
+    };
   </script>
-
-  <script>
-    // Optional Telegram popup
-    if (confirm("Join Our Telegram Channel @Cricinsider365") == true) {
-      window.open("https://t.me/+IhSW51QysxU3NzY1", '_blank');
-    }
-  </script>
-
 </body>
 </html>
