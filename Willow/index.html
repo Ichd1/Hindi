@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    '2233b72332765f888a43983a98deec5c': "2cc1b1862998c1f22190121c36149a7f"
+                    '708a98b352bd4418a73a028edd84da8f': "b1fa5c2bca4c4b57b924b748564532cb"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://dck1-fs-live.dtcdn.dazn.com/out/v1/814bffb9b389f652/3bef222785684b458a800836ac836063/index.mpd");
+            await player.load("https://dice-live-oc.akamaized.net/hdntl=exp=1778913298~acl=%2F*~id=b27ee9ea-695b-4a10-b775-be58c86ad124~data=hdntl,aXA9MjA4Ljg3LjI0MS4yMzUmZXhwPTE3Nzg4MjY5MjgmZWlkPTkzNTYyMyZvaWQ9MTU0JnR5cGU9Vk9EJnVpZD14UlJxbzl8YmNhZWE3Y2YtYzMzNy00MDM5LTgxNTgtM2MxY2U0OWU3MjkzJmNpZD1kY2UuZmlzZmVkJnB0PW51bGw~hmac=a8c598eef25e1c8a69714145d9ee08f6f5fd1590ec01736bcb8803db0c12cad7/dash/live/2093715/219027-321028/manifest-d.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
