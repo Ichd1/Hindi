@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    'b62efe3c810e550dadeb87bf43ba0987': "8ec64c8434c98d627b639fad5313dc18"
+                    '2e2636daa74141b68cc14882ea3ff82b': "0961f48287324adbb4b7ff3c9d82b3c9"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://dck1-ac-live.cdn.indazn.com/out/v1/761f422bb93edb7b/5cbe5a6be7314553a62ba3f74951ae04/index.mpd");
+            await player.load("https://dice-live-oc.akamaized.net/hdntl=exp=1779070452~acl=/*~id=6b7ee9f0-7edd-4c57-bc78-800cff2e09b4~data=hdntl,aXA9NTIuMTYxLjU2LjcwJmV4cD0xNzc4OTg0MDgyJmVpZD05MzkxOTcmb2lkPTE1NCZ0eXBlPVZPRCZ1aWQ9YWRjV1lXfGI2MGFmMjk5LTAzOTEtNGQxZi1hNmQwLWQ4MjQ0ZGZhZjFjOSZjaWQ9ZGNlLmZpc2ZlZCZwdD1udWxs~hmac=7ca2a63f4cd71f4cf3a24c71c8ee747d377a706a625387cf6f8b1d4feb311f1e/dash/live/2093717/219028-321030/manifest-d.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
@@ -125,7 +125,7 @@ window.player = player;
     function onPlayerErrorEvent(event) {
         onPlayerError(event.detail);
     }
-
+w
     function onPlayerError(error) {
         console.error("Error code", error.code, "object", error);
     }
