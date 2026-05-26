@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    '4d346b1d1ae64d4a800409cffa14983e': "208c972bd2da4359ac94e6944fe378b6"
+                    '01c9bbf8137e58378a5ead514998a7b4': "fb01e61809e80e5e93a889cd31daab22"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://dice-live-oc.akamaized.net/exp=1779877923~acl=%2f*~id=d60edd6f-dfff-4763-a840-fa24c9d396ed~data=hdntl,aXA9MzguMTM3LjUwLjg0JmV4cD0xNzc5NzkxNTUyJmVpZD04Mzc5MTcmb2lkPTIyJnR5cGU9Vk9EJnVpZD1udWxsJmNpZD1udWxsJnB0PW51bGw~hmac=6497ada08e78ab4c8e0d477c04475e8ec911b47cf0cfec9b46b4592cbf1638ee/dash/live/2093666/294921-318514/manifest-d.mpd");
+            await player.load("https://dck1-fs-live.dtcdn.dazn.com/out/v1/814bffb9b389f652/d65feac5647949e6b45b2674d4715398/index.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
