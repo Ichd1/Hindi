@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    '294b5761cefc22d0c6312939e13d8278': "52148f1042d238849f0a7813f1da8a7b"
+                    '4d346b1d1ae64d4a800409cffa14983e': "208c972bd2da4359ac94e6944fe378b6"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://qw.live.pv-cdn.net/OTTB/lhr-nitro/live/clients/dash/enc/cllekigzzn/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd");
+            await player.load("https://dice-live-oc.akamaized.net/exp=1779877923~acl=%2f*~id=d60edd6f-dfff-4763-a840-fa24c9d396ed~data=hdntl,aXA9MzguMTM3LjUwLjg0JmV4cD0xNzc5NzkxNTUyJmVpZD04Mzc5MTcmb2lkPTIyJnR5cGU9Vk9EJnVpZD1udWxsJmNpZD1udWxsJnB0PW51bGw~hmac=6497ada08e78ab4c8e0d477c04475e8ec911b47cf0cfec9b46b4592cbf1638ee/dash/live/2093666/294921-318514/manifest-d.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
