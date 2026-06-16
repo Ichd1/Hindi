@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    'a7d11d37a1f7611ee88d4db880171f32': "l68f96d618b0b956b008c445896a25a79"
+                    'ce7ab3022e753307997f58afe001bac4': "72d631a66e635c60829a0fe7705516c1"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://otte.live.fly.ww.aiv-cdn.net/gru-nitro/live/clients/dash/enc/ubehitlwzo/out/v1/8e09c381a51f4366a19e979418112e8f/cenc.mpd");
+            await player.load("https://live-oneapp-prd-news.akamaized.net/Content/CMAF_OL2-CTR-4s-v2/Live/channel(kvea)/master.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
