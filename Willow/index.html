@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    '458e0f22edc0799b9c33656bb9e202a1': "4af50d29813b200a8f1687da4573b155"
+                    '549ab7cd35a64bb6bb479ecead04d69d': "829799ed534d11fcadeb4b192467e050"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/ztb9jtlusq/out/v1/80da27cef04449a5abf3bea2c70e19cd/cenc.mpd");
+            await player.load("https://qp-pldt-live-bpk-ucd-prod.akamaized.net/bpk-tv/ch299/default/index.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
