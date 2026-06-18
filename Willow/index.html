@@ -91,7 +91,7 @@
         player.configure({
             drm: {
                 clearKeys: {
-                    '34475edab991ad5e92548aebd710410a': "501b209cccd323ac00bf5ac15b406cb4"
+                    '433ffba670963e70857859a9dff4be04': "51ede3a821229fe81e71282c8eff80e3"
                 }
             }
         });
@@ -115,7 +115,7 @@ window.player = player;
         controls.addEventListener("error", onUIErrorEvent);
 
         try {
-            await player.load("https://a121aivottepl-a.akamaihd.net/gru-nitro/live/clients/dash/enc/jo3rmhhp2r/out/v1/50656942ce4e40a1be824c9d83578fe9/cenc.mpd");
+            await player.load("https://origin-m6web.live.6cloud.fr/out/v1/6play/6play-m6/cmaf_cenc00/dash-short-hd.mpd");
             console.log("The video has now been loaded!");
         } catch (error) {
             onPlayerError(error);
